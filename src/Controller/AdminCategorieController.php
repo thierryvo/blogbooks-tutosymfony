@@ -10,7 +10,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-// Class AdminCategorieController (Admin:  Categorie)  
+// Class AdminCategorieController (Admin:  Categorie)
 /**
  * @Route("/admin/categorie")
  */
