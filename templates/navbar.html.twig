@@ -1,0 +1,54 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+<!-- templates / navbar -->
+<div class="container-fluid">
+    <a class="navbar-brand" href="#">Blogbook</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+        <a href="{{ path('app_home') }}" class="nav-link active" aria-current="page">accueil</a>
+        </li>
+        <li class="nav-item">
+        <a href="{{ path('app_categorie_index') }}" class="nav-link">les catégories</a>
+        </li>
+
+        <!-- dropdown Espace Admin -->
+        <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Espace Admin
+        </a>
+        <ul class="dropdown-menu">
+            <li><a href="{{ path('app_admin_categorie_index') }}" class="dropdown-item">Catégories</a></li>
+            <li><a href="{{ path('app_admin_article_index') }}" class="dropdown-item">Articles</a></li>
+            <li><a href="{{ path('app_admin_commentaire_index') }}" class="dropdown-item">Commentaires</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a href="{{ path('app_admin_user_index') }}" class="dropdown-item">Utilisateurs</a></li>
+        </ul>
+        </li>
+        <!--  -->
+
+        <li class="nav-item">
+        <a href="{{ path('app_register') }}" class="nav-link active" aria-current="page">inscription</a>
+        </li>
+        <li class="nav-item">
+        <a href="{{ path('app_login') }}" class="nav-link">identification</a>
+        </li>        
+
+        <li class="nav-item">
+        <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+        </li>
+    </ul>
+
+
+    <!-- BLOC CHERCHER à droite  -->
+    <form class="d-flex" role="search">
+        <!-- input de recherche  -->
+        <input class="form-control me-2" type="search" placeholder="Saisir votre recherche" aria-label="Search">
+        <!-- BOUTTON  -->
+        <button class="btn btn-outline-success" type="submit">CHERCHER</button>
+    </form>
+    </div>
+</div>
+</nav>

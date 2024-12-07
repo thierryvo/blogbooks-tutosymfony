@@ -4,7 +4,7 @@
 
 {% block body %}
     <!-- PAGE templates / article / show -->
-    <h1>Article</h1>
+    <h1>Les commentaires de l'article {{ article.titre }} </h1>
 
     <table class="table">
         <tbody>
@@ -22,14 +22,15 @@
             </tr>
         </tbody>
     </table>
+    <a href="{{ path('app_categorie_show', {'id': article.categorie.id}) }}">Revenir à la liste des articles</a> 
 
     <!-- lien vers la création d'un commentaire -->
-    <div>
+    <div class="mt-3">
         <a href="{{ path('app_commentaire_new', {'id': article.id}) }}">Ajouter un commentaire</a>
     </div>
 
     <!-- Liste des commentaires d'un article sélectionné    dans une table -->
-    <table class="table">
+    <table class="table mt-3">
         <thead>
             <tr>
                 <th>Id</th>
@@ -49,7 +50,7 @@
             </tr>
         {% else %}
             <tr>
-                <td colspan="4">no records found</td>
+                <td colspan="4">aucun commentaire pour cet article</td>
             </tr>
         {% endfor %}
         </tbody>
