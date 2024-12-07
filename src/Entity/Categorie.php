@@ -29,6 +29,7 @@ class Categorie
      */
     private $articles;
 
+    // CONSTRUCTEUR
     public function __construct()
     {
         $this->articles = new ArrayCollection();
@@ -79,5 +80,10 @@ class Categorie
         }
 
         return $this;
+    }
+
+    // __toString() --------------------------------------------------
+    public function __toString(){
+        return $this->nom;
     }
 }

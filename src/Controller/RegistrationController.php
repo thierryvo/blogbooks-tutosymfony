@@ -16,7 +16,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Contracts\Translation\TranslatorInterface;
 use SymfonyCasts\Bundle\VerifyEmail\Exception\VerifyEmailExceptionInterface;
 
-// Class RegistrationController (inscription)  
+// Class RegistrationController (inscription)   
 class RegistrationController extends AbstractController
 {
     private EmailVerifier $emailVerifier;

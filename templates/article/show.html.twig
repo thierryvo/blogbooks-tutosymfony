@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Article{% endblock %}
+
+{% block body %}
+    <!-- PAGE templates / article / show -->
+    <h1>Article</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ article.id }}</td>
+            </tr>
+            <tr>
+                <th>Titre</th>
+                <td>{{ article.titre }}</td>
+            </tr>
+            <tr>
+                <th>Contenu</th>
+                <td>{{ article.contenu }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- lien vers la création d'un commentaire -->
+    <div>
+        <a href="{{ path('app_commentaire_new', {'id': article.id}) }}">Ajouter un commentaire</a>
+    </div>
+
+    <!-- Liste des commentaires d'un article sélectionné    dans une table -->
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Contenu</th>
+                <th>CreatedAt</th>
+                <th>Auteur</th>
+            </tr>
+        </thead>
+        <tbody>
+        <!-- BOUCLE sur les commentaires -->
+        {% for itemCommentaire in commentaires %}
+            <tr>
+                <td>{{ itemCommentaire.id }}</td>
+                <td>{{ itemCommentaire.contenu }}</td>
+                <td>{{ itemCommentaire.createdAt ? itemCommentaire.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ itemCommentaire.user.email }}</td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>    
+
+{% endblock %}

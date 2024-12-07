@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Categorie{% endblock %}
+
+{% block body %}
+    <h1>Categorie</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ categorie.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ categorie.nom }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+   
+
+    <!-- Liste des articles d'une catégorie  dans une table --> 
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Titre</th>
+                <th>Contenu</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        <!-- BOUCLE sur les articles -->
+        {% for itemArticle in articles %}
+            <tr>
+                <td>{{ itemArticle.id }}</td>
+                <td>{{ itemArticle.titre }}</td>
+                <td>{{ itemArticle.contenu }}</td>
+                <td>
+                    <a href="{{ path('app_article_show', {'id': itemArticle.id}) }}">show</a>               
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>    
+
+{% endblock %}

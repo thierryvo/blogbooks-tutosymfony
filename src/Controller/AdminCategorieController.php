@@ -10,12 +10,14 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-// Class AdminCategorieController (Admin:  Categorie)
+// Class AdminCategorieController (Admin:  Categorie)  avec une route commune: /admin/categorie 
 /**
  * @Route("/admin/categorie")
  */
 class AdminCategorieController extends AbstractController
 {
+    // Action index accessible par la route /admin/categorie/ ------------------------------------------- index
+    //        index = faire la liste de toutes les catégories
     /**
      * @Route("/", name="app_admin_categorie_index", methods={"GET"})
      */
@@ -26,6 +28,8 @@ class AdminCategorieController extends AbstractController
         ]);
     }
 
+    // Action new accessible par la route /admin/categorie/new ------------------------------------------ new
+    //        new = créer une nouvelle categorie
     /**
      * @Route("/new", name="app_admin_categorie_new", methods={"GET", "POST"})
      */
@@ -47,6 +51,8 @@ class AdminCategorieController extends AbstractController
         ]);
     }
 
+    // Action show accessible par la route /admin/categorie/{id} --------------------------------------- show
+    //        show = montrer le détail d'une catégorie
     /**
      * @Route("/{id}", name="app_admin_categorie_show", methods={"GET"})
      */
@@ -57,6 +63,8 @@ class AdminCategorieController extends AbstractController
         ]);
     }
 
+    // Action edit accessible par la route /admin/categorie/{id}/edit ------------------------------------ edit
+    //        edit = modifier une catégorie existante
     /**
      * @Route("/{id}/edit", name="app_admin_categorie_edit", methods={"GET", "POST"})
      */
@@ -77,15 +85,19 @@ class AdminCategorieController extends AbstractController
         ]);
     }
 
+    // Action delete accessible par la route /admin/categorie/{id}/delete -------------------------------- delete
+    //        delete = supprimer une catégorie existante
     /**
      * @Route("/{id}", name="app_admin_categorie_delete", methods={"POST"})
      */
     public function delete(Request $request, Categorie $categorie, CategorieRepository $categorieRepository): Response
     {
+        // suppression
         if ($this->isCsrfTokenValid('delete'.$categorie->getId(), $request->request->get('_token'))) {
             $categorieRepository->remove($categorie, true);
         }
 
+        // redirection
         return $this->redirectToRoute('app_admin_categorie_index', [], Response::HTTP_SEE_OTHER);
     }
 }
